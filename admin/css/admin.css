@@ -1,0 +1,243 @@
+.div1 {
+    margin-top: 50px;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    width: 450px;
+    min-height: 650px;
+    max-height: 800px;
+    box-shadow: 0 10px 20px rgba(98, 98, 98, 0.2);
+    position: absolute;
+    left: 40%;
+}
+
+.div2 {
+    margin-top: 50px;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    width: 450px;
+    min-height: 900px;
+    max-height: 1000px;
+    box-shadow: 0 10px 20px rgba(98, 98, 98, 0.2);
+    position: absolute;
+    left: 40%;
+}
+
+.div-login-register {
+    display: flex;
+    align-items: center;
+}
+
+.img {
+    margin-right: 10px;
+}
+
+.container1 {
+    width: 95vw;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.container2 {
+    width: 95vw;
+    display: flex;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.sidebar {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin-right: 20px;
+}
+
+
+.filter {
+    width: 68%;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.filter2 {
+    width: 90%;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.product {
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-top: 5px;
+}
+
+.product-item {
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #f4f4f4;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+}
+
+.product-item:hover {
+    transform: scale(1.02);
+}
+
+.product-item-graph {
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    background: #f4f4f4;
+    align-items: center;
+}
+
+.product-item-graph:hover {
+    transform: scale(1.02);
+}
+
+.sidebar-search {
+    padding: 10px;
+    width: 100%;
+    font-size: 1.2vw;
+    border: 1px solid transparent;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.sidebar-search:focus {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    background: rgb(255, 255, 255);
+}
+
+.sidebar-menu {
+    background: white;
+    border-radius: 10px;
+    color: #000;
+    font-size: 1.2vw;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    margin-right: 1px;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-menu:hover {
+    font-weight: bold;
+    background: rgb(0, 157, 255);
+    color: rgb(255, 255, 255);
+}
+
+.sidebar-menu-filter {
+    background: white;
+    border-radius: 10px;
+    color: #000;
+    font-size: 1.2vw;
+    text-decoration: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    padding: 1px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+    margin-right: 5px;
+}
+
+.sidebar-menu-filter:hover {
+    font-weight: bold;
+    background: rgb(0, 157, 255);
+    color: rgb(255, 255, 255);
+}
+
+.background-container-header {
+    background: rgb(40, 172, 255);
+    padding: 1px;
+    border-radius: 10px;
+}
+
+.background-container-menu {
+    background: rgb(249, 249, 249);
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.background-container {
+    background: rgb(232, 232, 232);
+    padding: 1px;
+    border-radius: 10px;
+}
+
+.product-img {
+    width: 50%;
+    height: 10vw;
+    object-fit: cover;
+    border-radius: 10px;
+    padding: 30px;
+    margin-left: 10px;
+}
+
+.box1 {
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    margin-top: 5px;
+}
+
+.box2 {
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+    margin-top: 5px;
+}
+
+.box3 {
+    width: 50%;
+    height: 10%;
+    padding: 10px;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-top: 5px;
+}
+
+.graph-menu {
+    width: 100%;
+    height: 100%;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    margin-top: 5px;
+}
+
+.img_product {
+    width: 12vw;
+    height: 13vw;
+    border-radius: 10px;
+}

@@ -21,6 +21,45 @@
 
         header('Location:order_history.php');
     }
+
+    // Get the email of the user whose orders you want to display (this could be set based on some input or selection)
+    $user_email = isset($_GET['email']) ? $_GET['email'] : $_SESSION['user_login'];
+
+    // Pagination setup
+    $limit = 5; // Items per page
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $offset = ($page - 1) * $limit;
+
+    // Count total items for pagination
+    $total_stmt = $db->prepare("SELECT COUNT(*) FROM sp_transaction WHERE email = :email");
+    $total_stmt->bindParam(':email', $user_email);
+    $total_stmt->execute();
+    $total_items = $total_stmt->fetchColumn();
+    $total_pages = ceil($total_items / $limit);
+
+    // Fetch orders for the specific user with pagination
+    $select_stmt = $db->prepare("SELECT * FROM sp_transaction WHERE email = :email ORDER BY id DESC LIMIT :limit OFFSET :offset");
+    $select_stmt->bindParam(':email', $user_email);
+    $select_stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+    $select_stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+    $select_stmt->execute();
+
+    $orders = [];
+    while ($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
+        $order = [
+            'id' => $row['id'],
+            'orderid' => $row['transid'],
+            'orderlist' => json_decode($row['orderlist'], true),
+            'netamount' => $row['netamount'],
+            'updated_at' => $row['updated_at'],
+            'username' => $row['username'],
+            'address' => $row['address'],
+            'phone' => $row['phone'],
+            'operation' => $row['operation'],
+            'slip' => $row['slip'],
+        ];
+        $orders[] = $order;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +76,7 @@
 </head>
 <body>
     
-    <div class=" text-center mt-3">
+    <div class=" text-center">
         <div class="container1 background-container-header">
 
             <?php if(isset($_SESSION['success'])) : ?>
@@ -57,13 +96,12 @@
             <h3>
                 <?php if(isset($_SESSION['user_login'])) { ?>
                 Welcome, <?php echo $_SESSION['user_login']; }?>
-                <a href="../logout.php" class="btn btn-danger">ออกจากระบบ</a>
             </h3>
 
         </div>
     </div>
     
-    <div class="container2 background-container-menu">
+    <div class="container1 background-container-menu">
         <div class="container2">
             <div class="sidebar">
 
@@ -74,8 +112,6 @@
                 <a href="order_history.php" class="sidebar-menu">
                     คำสั่งซื้อของคุณ
                 </a>
-
-                <hr>
 
                 <?php
                     if (isset($_SESSION['user_login'])) {
@@ -89,6 +125,9 @@
                     โปรไฟล์
                 </a>
                 
+                <hr>
+                
+                <a href="../logout.php" class="sidebar-menu btn-danger" style="border-radius: 10px;">ออกจากระบบ</a>
 
                 <?php } }?>
             </div>
@@ -108,6 +147,24 @@
                         </center>
                     </div>
                 </center>
+
+                <br>
+
+                <nav>
+                    <ul class="pagination justify-content">
+                        <?php if ($page > 1): ?>
+                            <li class="page-item"><a class="page-link link-dark" href="?page=<?php echo $page - 1; ?>">ก่อนหน้า</a></li>
+                        <?php endif; ?>
+                        <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+                            <li class="page-item <?php echo $i == $page ? 'active' : ''; ?>">
+                                <a class="page-link link-dark" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                            </li>
+                        <?php endfor; ?>
+                        <?php if ($page < $total_pages): ?>
+                            <li class="page-item"><a class="page-link link-dark" href="?page=<?php echo $page + 1; ?>">ถัดไป</a></li>
+                        <?php endif; ?>
+                    </ul>
+                </nav>
                 
                 <table class="table table-light table-bordered table-hover mt-3">
                     <thead class="table-primary">
@@ -127,43 +184,41 @@
                     </thead>
 
                     <tbody>
-                        <?php
-                            $select_stmt = $db->prepare("SELECT * FROM sp_transaction WHERE email = '".$_SESSION["user_login"]."'");
-                            $select_stmt->execute();
-
-                            while ($row = $select_stmt->fetch(PDO::FETCH_ASSOC)) {
-
-                                // Decode the JSON order list
-                                $orderlist = json_decode($row["orderlist"], true);
-                                // Create an HTML table for the orderlist
-                                $orderTable = '<table class="table table-light table-bordered table-hover"><tr><th>ชื่อ</th><th>จำนวน</th><th>ราคาต่อชิ้น</th></tr>';
-                                foreach ($orderlist as $item) {
-                                    $price = isset($item['price']) ? htmlspecialchars($item['price']) . ' บาท' : '';
-                                    $orderTable .= '<tr><td>' . htmlspecialchars($item['name']) . '</td><td>' . htmlspecialchars($item['count']) . '</td><td>' . $price . '</td></tr>';
-                                }
-                                $orderTable .= '</table>';
-
-                        ?>
-
+                        <?php foreach ($orders as $order): ?>
                             <tr>
-                                <td><?php echo $row["id"]; ?></td>
-                                <td><?php echo $row["transid"]; ?></td>
-                                <td><?php echo $orderTable; ?></td>
-                                <td><?php echo $row["netamount"]; ?></td>
-                                <td><?php echo $row["updated_at"]; ?></td>
-                                <td><?php echo $row["username"]; ?></td>
-                                <td><?php echo $row["address"]; ?></td>
-                                <td><?php echo $row["phone"]; ?></td>
-                                <td><?php echo $row["operation"]; ?></td>
-                                <td><img class="img_product" src="../uploads/<?php echo $row["slip"]; ?>" ></td>
-                                <td class="mt-5">
+                                <td><?php echo $order["id"]; ?></td>
+                                <td><?php echo $order["orderid"]; ?></td>
+                                <td>
+                                    <table class="table table-light table-bordered table-hover">
+                                        <tr>
+                                            <th>ชื่อ</th>
+                                            <th>จำนวน</th>
+                                            <th>ราคาต่อชิ้น</th>
+                                        </tr>
+                                        <?php foreach ($order["orderlist"] as $item): ?>
+                                            <tr>
+                                                <td><?php echo htmlspecialchars($item['name']); ?></td>
+                                                <td><?php echo htmlspecialchars($item['count']); ?></td>
+                                                <td><?php echo isset($item['price']) ? htmlspecialchars($item['price']) . ' บาท' : ''; ?></td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    </table>
+                                </td>
+                                <td><?php echo $order["netamount"]; ?></td>
+                                <td><?php echo $order["updated_at"]; ?></td>
+                                <td><?php echo $order["username"]; ?></td>
+                                <td><?php echo $order["address"]; ?></td>
+                                <td><?php echo $order["phone"]; ?></td>
+                                <td><?php echo $order["operation"]; ?></td>
+                                <td><img class="img_product" src="../uploads/<?php echo $order["slip"]; ?>" alt="Slip Image"></td>
+                                <td class="text-nowrap">
                                     <center>
-                                        <a href="add_slip.php?update_id=<?php echo $row["id"]; ?>" class="btn btn-warning">แก้ไข</a>
+                                        <a href="edit_operation.php?update_id=<?php echo $order["id"]; ?>" class="btn btn-warning">แก้ไข</a>
+                                        <a href="?delete_id=<?php echo $order["id"]; ?>&email=<?php echo htmlspecialchars($user_email); ?>" class="btn btn-danger">ลบ</a>
                                     </center>
                                 </td>
                             </tr>
-
-                        <?php } ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

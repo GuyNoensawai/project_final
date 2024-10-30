@@ -35,7 +35,7 @@
 </head>
 <body>
     
-    <div class="text-center mt-3">
+    <div class="text-center">
         <div class="container1 background-container-header">
 
             <?php if(isset($_SESSION['success'])) : ?>
@@ -55,13 +55,12 @@
             <h3>
                 <?php if(isset($_SESSION['employee_login'])) { ?>
                 Welcome, <?php echo $_SESSION['employee_login']; }?>
-                <a href="../logout.php" class="btn btn-danger">ออกจากระบบ</a>
             </h3>
 
         </div>
     </div>
     
-    <div class="container2 background-container-menu">
+    <div class="container1 background-container-menu">
         <div class="container2">
         <div class="sidebar">
 
@@ -85,9 +84,6 @@
                 สินค้า
             </a>
 
-            <hr>
-
-
             <?php
                 if (isset($_SESSION['employee_login'])) {
                 $select_stmt = $db->prepare("SELECT * FROM masterlogin WHERE email = '".$_SESSION["employee_login"]."'");
@@ -101,6 +97,10 @@
             </a>    
                 
             <?php } }?>
+
+            <hr>
+                
+            <a href="../logout.php" class="sidebar-menu btn-danger" style="border-radius: 10px;">ออกจากระบบ</a>
         </div>
 
             <div class="filter2">

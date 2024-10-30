@@ -34,7 +34,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <div class="text-center mt-3">
+    <div class="text-center">
         <div class="container1 background-container-header">
 
             <?php if(isset($_SESSION['success'])) : ?>
@@ -60,7 +60,7 @@
         </div>
     </div>
 
-    <div class="container2 background-container-menu">
+    <div class="container1 background-container-menu">
         <div class="container2">
             <div class="sidebar">
 
@@ -84,7 +84,6 @@
                     สินค้า
                 </a>
 
-                <hr>
 
                 <?php
                     if (isset($_SESSION['employee_login'])) {
@@ -101,6 +100,9 @@
 
                 <?php } }?>
 
+                <hr>
+                
+                <a href="../logout.php" class="sidebar-menu btn-danger" style="border-radius: 10px;">ออกจากระบบ</a>
             </div>
 
             <div class="filter2">
@@ -133,7 +135,7 @@
                                 <td><?php echo $row["lastname"]; ?></td>
                                 <td><?php echo $row["username"]; ?></td>
                                 <td><?php echo $row["email"]; ?></td>
-                                <td><?php echo $row["password"]; ?></td>
+                                <td class="password-cell"><?php echo $row["password"]; ?></td>
                                 <td><?php echo $row["role"]; ?></td>
                                 <td><?php echo $row["phone"]; ?></td>
                                 <td class="text-nowrap"><?php echo $row["address"]; ?></td>

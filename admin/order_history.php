@@ -25,7 +25,7 @@
 
 <?php
     // กำหนดจำนวนรายการที่จะแสดงต่อหน้า
-    $limit = 10;
+    $limit = 5;
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $offset = ($page - 1) * $limit;
 
@@ -81,7 +81,7 @@
 </head>
 <body>
     
-    <div class=" text-center mt-3">
+    <div class=" text-center">
         <div class="container1 background-container-header">
 
             <?php if(isset($_SESSION['success'])) : ?>
@@ -141,7 +141,7 @@
                 <input type="text" id="searchOrderInput" onkeyup="searchorder(this)" class="sidebar-search sidebar-menu-filter" placeholder="ค้นหาประวัติการสั่งซื้อ">
 
                 <nav>
-                    <ul class="pagination justify-content-center">
+                    <ul class="pagination justify-content">
                         <?php if ($page > 1): ?>
                             <li class="page-item"><a class="page-link link-dark" href="?page=<?php echo $page - 1; ?>">ก่อนหน้า</a></li>
                         <?php endif; ?>

@@ -27,8 +27,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="text-center mt-3">
-        <div class="container background-container-header">
+    <div class="text-center">
+        <div class="container1 background-container-header">
 
             <?php if(isset($_SESSION['success'])) : ?>
                 <div class="alert alert-success">
@@ -48,12 +48,11 @@
             <h3>
                 <?php if(isset($_SESSION['user_login'])) { ?>
                 Welcome, <?php echo $_SESSION['user_login']; }?>
-                <a href="../logout.php" class="btn btn-danger">ออกจากระบบ</a>
             </h3>
         </div>
     </div>
 
-    <div class="container background-container-menu">
+    <div class="container1 background-container-menu">
         <div class="container2">
             <div class="sidebar">
 
@@ -64,8 +63,6 @@
                 <a href="order_history.php" class="sidebar-menu">
                     คำสั่งซื้อของคุณ
                 </a>
-
-                <hr>
 
                 <?php
                     if (isset($_SESSION['user_login'])) {
@@ -78,7 +75,10 @@
                 <a href="user_profile.php?update_id=<?php echo $row["id"]; ?>" class="sidebar-menu">
                     โปรไฟล์
                 </a>
+
+                <hr>
                 
+                <a href="../logout.php" class="sidebar-menu btn-danger" style="border-radius: 10px;">ออกจากระบบ</a>
 
                 <?php } }?>
 
@@ -88,15 +88,15 @@
             <div class="container1">
                 <div class="">
                     <div class="itemcart">
-                        <div id="cartcount" class="cartcount" style="display: none;">
-                            0
-                        </div>
                         <a class="sidebar-menu-cart" onclick="openCart()">
                             <center><i style="width: 35px;" class="fa-solid fa-cart-shopping"></i></center>
+                            <div id="cartcount" class="cartcount" style="display: none;">
+                                0
+                            </div>
                         </a>
                     </div>
 
-                    <div class="filter">
+                    <div class="filter3">
                         <input onkeyup="searchsome(this)" id="txt_search" type="text" class="sidebar-search sidebar-menu-filter" placeholder="ค้นหา">
 
                         <br>

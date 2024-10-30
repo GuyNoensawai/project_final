@@ -123,8 +123,8 @@
 </head>
 <body>
     
-    <div class="text-center mt-3">
-        <div class="container background-container-header">
+    <div class="text-center">
+        <div class="container1 background-container-header">
 
             <?php if(isset($_SESSION['success'])) : ?>
                 <div class="alert alert-success">
@@ -149,7 +149,7 @@
 
         </div>
     </div>
-    <div class="container background-container-menu">
+    <div class="container1 background-container-menu">
         <div class="container2">
             <div class="sidebar">
 
@@ -173,8 +173,6 @@
                     สินค้า
                 </a>
 
-                <hr>
-
                
                 <?php
                     if (isset($_SESSION['employee_login'])) {
@@ -189,6 +187,10 @@
                 </a>    
                 
                 <?php } }?>
+
+                <hr>
+                
+                <a href="../logout.php" class="sidebar-menu btn-danger" style="border-radius: 10px;">ออกจากระบบ</a>
             </div>
 
             <div class="filter">

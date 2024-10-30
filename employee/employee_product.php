@@ -35,8 +35,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-    <div class="text-center mt-3">
-        <div class="container background-container-header">
+    <div class="text-center">
+        <div class="container1 background-container-header">
 
             <?php if(isset($_SESSION['success'])) : ?>
                 <div class="alert alert-success">
@@ -56,12 +56,11 @@
             <h3>
                 <?php if(isset($_SESSION['employee_login'])) { ?>
                 Welcome, <?php echo $_SESSION['employee_login']; }?>
-                <a href="../logout.php" class="btn btn-danger">ออกจากระบบ</a>
             </h3>
         </div>
     </div>
 
-    <div class="container background-container-menu">
+    <div class="container1 background-container-menu">
         <div class="container2">
             <div class="sidebar">
 
@@ -85,7 +84,6 @@
                     สินค้า
                 </a>
 
-                <hr>
 
                 <?php
                     if (isset($_SESSION['employee_login'])) {
@@ -102,6 +100,9 @@
 
                 <?php } }?>
 
+                <hr>
+                
+                <a href="../logout.php" class="sidebar-menu btn-danger" style="border-radius: 10px;">ออกจากระบบ</a>
             </div>
 
             

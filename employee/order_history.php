@@ -25,7 +25,7 @@
 
 <?php
     // กำหนดจำนวนรายการที่จะแสดงต่อหน้า
-    $limit = 10;
+    $limit = 5;
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $offset = ($page - 1) * $limit;
 
@@ -81,7 +81,7 @@
 </head>
 <body>
     
-    <div class=" text-center mt-3">
+    <div class=" text-center">
         <div class="container1 background-container-header">
 
             <?php if(isset($_SESSION['success'])) : ?>
@@ -101,13 +101,12 @@
             <h3>
                 <?php if(isset($_SESSION['employee_login'])) { ?>
                 Welcome, <?php echo $_SESSION['employee_login']; }?>
-                <a href="../logout.php" class="btn btn-danger">ออกจากระบบ</a>
             </h3>
 
         </div>
     </div>
     
-    <div class="container2 background-container-menu">
+    <div class="container1 background-container-menu">
         <div class="container2">
             <div class="sidebar">
 
@@ -130,9 +129,6 @@
                 <a href="employee_product.php" class="sidebar-menu">
                     สินค้า
                 </a>
-
-                <hr>
-
                
                 <?php
                     if (isset($_SESSION['employee_login'])) {
@@ -147,6 +143,10 @@
                 </a>    
                     
                 <?php } }?>
+
+                <hr>
+                
+                <a href="../logout.php" class="sidebar-menu btn-danger" style="border-radius: 10px;">ออกจากระบบ</a>
             </div>
 
             <div class="filter2">
@@ -157,7 +157,7 @@
                 <input type="text" id="searchOrderInput" onkeyup="searchorder(this)" class="sidebar-search sidebar-menu-filter" placeholder="ค้นหาประวัติการสั่งซื้อ">
 
                 <nav>
-                    <ul class="pagination justify-content-center">
+                    <ul class="pagination justify-content">
                         <?php if ($page > 1): ?>
                             <li class="page-item"><a class="page-link link-dark" href="?page=<?php echo $page - 1; ?>">ก่อนหน้า</a></li>
                         <?php endif; ?>

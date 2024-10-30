@@ -11,9 +11,9 @@ $(document).ready(() => {
                 for (let i = 0; i < product.length; i++) {
                     html += `<div onclick="openProductDetail(${i})" class="product-item ${product[i].type}" style="background-color: rgb(201, 220, 255); display: flex; flex-direction: column; justify-content: space-between; height: 100%;">
                             <img class="product-img" src="../img/${product[i].img}" alt="">
-                            <p style="font-size: 0.9vw;">${product[i].name}</p>
+                            <p style="font-size: 0.9vw; padding-left: 6px;">${product[i].name}</p>
 
-                            <p style="font-size: 1.2vw; margin-top: auto;">
+                            <p style="font-size: 1.2vw; margin-top: auto; padding-left: 6px;">
                                 ${numberWithCommas(product[i].price)} บาท
 
                                 ${product[i].stock > 0 ? 

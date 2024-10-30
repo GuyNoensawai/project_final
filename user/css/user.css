@@ -104,7 +104,7 @@
 }
 
 .sidebar-menu:hover {
-    background: rgb(0, 157, 255);
+    background: rgb(40, 172, 255);
     color: rgb(255, 255, 255);
 }
 
@@ -122,7 +122,7 @@
 }
 
 .sidebar-menu-filter:hover {
-    background: rgb(0, 157, 255);
+    background: rgb(40, 172, 255);
     color: rgb(255, 255, 255);
 }
 
@@ -159,7 +159,7 @@
 }
 
 .desc-content {
-    background: blue;
+    background: rgb(40, 172, 255);
     display: flex;
 }
 
@@ -228,7 +228,7 @@
 
 .btn-con:hover {
     font-weight: bold;
-    background: rgb(0, 157, 255);
+    background: rgb(40, 172, 255);
     color: rgb(255, 255, 255);
     cursor: pointer;
 }
@@ -338,7 +338,7 @@
 }
 
 .sidebar-menu-cart:hover {
-    background: rgb(0, 157, 255);
+    background: rgb(40, 172, 255);
     transition: 0.3s;
     cursor: pointer;
 }
@@ -466,7 +466,7 @@
     .sidebar-menu-cart:hover {
         width: 10vw;
         height: 8vw;
-        background: rgb(0, 157, 255);
+        background: rgb(40, 172, 255);
         transition: 0.3s;
         cursor: pointer;
     }

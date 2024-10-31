@@ -96,12 +96,10 @@
             <?php endif ?>
 
             <h1>Admin Page</h1>
-            <hr>
 
             <h3>
                 <?php if(isset($_SESSION['admin_login'])) { ?>
                 Welcome, <?php echo $_SESSION['admin_login']; }?>
-                <a href="../logout.php" class="btn btn-danger">ออกจากระบบ</a>
             </h3>
 
         </div>
@@ -130,6 +128,10 @@
                 <a href="order_history.php" class="sidebar-menu">
                     ประวัติรายการสั่งซื้อ
                 </a>
+
+                <hr>
+                
+                <a href="../logout.php" class="sidebar-menu btn-danger" style="border-radius: 10px;">ออกจากระบบ</a>
 
             </div>
 
@@ -200,7 +202,11 @@
                                 <td><?php echo $order["address"]; ?></td>
                                 <td><?php echo $order["phone"]; ?></td>
                                 <td><?php echo $order["operation"]; ?></td>
-                                <td><img class="img_product" src="../uploads/<?php echo $order["slip"]; ?>" alt="Slip Image"></td>
+                                <td>
+                                    <?php if (!empty($order["slip"])): ?>
+                                        <img class="img_product" src="../uploads/<?php echo $order["slip"]; ?>" alt="Slip Image">
+                                    <?php endif; ?>
+                                </td>
                                 <td class="text-nowrap">
                                     <center>
                                         <a href="edit_operation.php?update_id=<?php echo $order["id"]; ?>" class="btn btn-warning">แก้ไข</a>

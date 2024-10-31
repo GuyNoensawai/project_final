@@ -83,7 +83,6 @@
             <?php endif ?>
 
             <h1>Employee Page</h1>
-            <hr>
 
             <h3>
                 <?php if(isset($_SESSION['employee_login'])) { ?>

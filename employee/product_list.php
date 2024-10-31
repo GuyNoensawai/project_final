@@ -50,7 +50,6 @@
             <?php endif ?>
 
             <h1>Employee Page</h1>
-            <hr>
 
             <h3>
                 <?php if(isset($_SESSION['employee_login'])) { ?>
@@ -108,7 +107,7 @@
                 <table class="table table-light table-bordered table-hover mt-3">
                     <thead class="table-primary">
                         <tr>
-                            <th>Id</th>
+                            <th></th>
                             <th>รูปภาพ</th>
                             <th>ชื่อ</th>
                             <th>ราคา</th>

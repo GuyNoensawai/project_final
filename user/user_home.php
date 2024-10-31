@@ -43,7 +43,6 @@
             <?php endif ?>
 
             <h1>User Page</h1>
-            <hr>
 
             <h3>
                 <?php if(isset($_SESSION['user_login'])) { ?>

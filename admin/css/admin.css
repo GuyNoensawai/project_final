@@ -239,3 +239,10 @@
     height: 13vw;
     border-radius: 10px;
 }
+
+.password-cell {
+    max-width: 40px;      /* Limit the width */
+    word-wrap: break-word; /* Allow wrapping of long words */
+    overflow: hidden;      /* Hide overflow text */
+    white-space: normal;   /* Allow normal whitespace handling */
+}

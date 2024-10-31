@@ -137,12 +137,10 @@
             <?php endif ?>
 
             <h1>Admin Page</h1>
-            <hr>
 
             <h3>
                 <?php if(isset($_SESSION['admin_login'])) { ?>
                 Welcome, <?php echo $_SESSION['admin_login']; }?>
-                <a href="../logout.php" class="btn btn-danger">ออกจากระบบ</a>
             </h3>
 
         </div>
@@ -171,8 +169,12 @@
                     ประวัติรายการสั่งซื้อ
                 </a>
 
+                <hr>
+                
+                <a href="../logout.php" class="sidebar-menu btn-danger" style="border-radius: 10px;">ออกจากระบบ</a>
+
             </div>
-            <div class="filter">
+            <div class="filter2">
                 <div class="container background-container">
     
                     <div class="box1">

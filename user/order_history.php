@@ -91,7 +91,6 @@
             <?php endif ?>
 
             <h1>User Page</h1>
-            <hr>
 
             <h3>
                 <?php if(isset($_SESSION['user_login'])) { ?>
@@ -169,7 +168,7 @@
                 <table class="table table-light table-bordered table-hover mt-3">
                     <thead class="table-primary">
                         <tr>
-                            <th>Id</th>
+                            <th></th>
                             <th>รหัสสินค้า</th>
                             <th>รายการสินค้า</th>
                             <th>ราคารวมสินค้า</th>
@@ -210,7 +209,11 @@
                                 <td><?php echo $order["address"]; ?></td>
                                 <td><?php echo $order["phone"]; ?></td>
                                 <td><?php echo $order["operation"]; ?></td>
-                                <td><img class="img_product" src="../uploads/<?php echo $order["slip"]; ?>" alt="Slip Image"></td>
+                                <td>
+                                    <?php if (!empty($order["slip"])): ?>
+                                        <img class="img_product" src="../uploads/<?php echo $order["slip"]; ?>" alt="Slip Image">
+                                    <?php endif; ?>
+                                </td>
                                 <td class="text-nowrap">
                                     <center>
                                         <a href="edit_operation.php?update_id=<?php echo $order["id"]; ?>" class="btn btn-warning">แก้ไข</a>

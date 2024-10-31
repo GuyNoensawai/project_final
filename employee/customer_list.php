@@ -49,12 +49,10 @@
             <?php endif ?>
 
             <h1>Employee Page</h1>
-            <hr>
 
             <h3>
                 <?php if(isset($_SESSION['employee_login'])) { ?>
                 Welcome, <?php echo $_SESSION['employee_login']; }?>
-                <a href="../logout.php" class="btn btn-danger">ออกจากระบบ</a>
             </h3>
 
         </div>
@@ -110,7 +108,7 @@
                     <table class="table table-light table-bordered table-hover mt-3 align-middle">
                     <thead class="table-primary">
                             <tr>
-                                <th>Id</th>
+                                <th></th>
                                 <th>ชื่อ</th>
                                 <th>นามสกุล</th>
                                 <th>Username</th>

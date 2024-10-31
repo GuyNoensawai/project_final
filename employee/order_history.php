@@ -24,19 +24,23 @@
 ?>
 
 <?php
+    $user_email = isset($_GET['email']) ? $_GET['email'] : $_SESSION['employee_login'];
+
     // กำหนดจำนวนรายการที่จะแสดงต่อหน้า
     $limit = 5;
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $offset = ($page - 1) * $limit;
 
     // คำนวณจำนวนหน้าทั้งหมด
-    $total_stmt = $db->prepare("SELECT COUNT(*) FROM sp_transaction");
+    $total_stmt = $db->prepare("SELECT COUNT(*) FROM sp_transaction WHERE email = :email");
+    $total_stmt->bindParam(':email', $user_email);
     $total_stmt->execute();
     $total_items = $total_stmt->fetchColumn();
     $total_pages = ceil($total_items / $limit);
 
     // ดึงข้อมูลประวัติการสั่งซื้อ
-    $select_stmt = $db->prepare("SELECT * FROM sp_transaction ORDER BY id DESC LIMIT :limit OFFSET :offset");
+    $select_stmt = $db->prepare("SELECT * FROM sp_transaction WHERE email = :email ORDER BY id DESC LIMIT :limit OFFSET :offset");
+    $select_stmt->bindParam(':email', $user_email);
     $select_stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
     $select_stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
     $select_stmt->execute();
@@ -96,7 +100,6 @@
             <?php endif ?>
 
             <h1>Employee Page</h1>
-            <hr>
 
             <h3>
                 <?php if(isset($_SESSION['employee_login'])) { ?>
@@ -175,7 +178,7 @@
                 <table class="table table-light table-bordered table-hover mt-3">
                     <thead class="table-primary">
                         <tr>
-                            <th>Id</th>
+                            <th></th>
                             <th>รหัสสินค้า</th>
                             <th>รายการสินค้า</th>
                             <th>ราคารวมสินค้า</th>

@@ -50,12 +50,10 @@
             <?php endif ?>
 
             <h1>Admin Page</h1>
-            <hr>
 
             <h3>
                 <?php if(isset($_SESSION['admin_login'])) { ?>
                 Welcome, <?php echo $_SESSION['admin_login']; }?>
-                <a href="../logout.php" class="btn btn-danger">ออกจากระบบ</a>
             </h3>
 
         </div>
@@ -85,6 +83,10 @@
                     ประวัติรายการสั่งซื้อ
                 </a>
 
+                <hr>
+                
+                <a href="../logout.php" class="sidebar-menu btn-danger" style="border-radius: 10px;">ออกจากระบบ</a>
+
             </div>
 
             <div class="filter2">
@@ -93,12 +95,12 @@
                     <table class="table table-light table-bordered table-hover mt-3 align-middle">
                         <thead class="table-primary">
                             <tr>
-                                <th>Id</th>
+                                <th></th>
                                 <th>ชื่อ</th>
                                 <th>นามสกุล</th>
                                 <th>Username</th>
                                 <th>Email</th>
-                                <th>รายการสินค้า</th>
+                                <th>รหัสผ่าน</th>
                                 <th>ประเภท</th>
                                 <th>เบอร์โทรศัพ์</th>
                                 <th>ที่อยู่</th>
@@ -119,7 +121,7 @@
                                 <td><?php echo $row["lastname"]; ?></td>
                                 <td><?php echo $row["username"]; ?></td>
                                 <td><?php echo $row["email"]; ?></td>
-                                <td><?php echo $row["password"]; ?></td>
+                                <td class="password-cell"><?php echo $row["password"]; ?></td>
                                 <td><?php echo $row["role"]; ?></td>
                                 <td><?php echo $row["phone"]; ?></td>
                                 <td><?php echo $row["address"]; ?></td>

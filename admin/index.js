@@ -45,3 +45,22 @@ function searchorder(elem) {
     // เรียกใช้ฟังก์ชันเปลี่ยนสีเซลล์ในตารางสถานะ
     changeCellColor();
 }
+
+
+// Function to confirm delete action
+function confirmDelete(id) {
+    Swal.fire({
+        title: 'คุณแน่ใจหรือไม่?',
+        text: "การกระทำนี้ไม่สามารถย้อนกลับได้!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: 'green',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'ใช่, ลบเลย!',
+        cancelButtonText: 'ยกเลิก'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = "?delete_id=" + id;
+        }
+    });
+}

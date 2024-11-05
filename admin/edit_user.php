@@ -84,7 +84,7 @@
 
     <div class="container">
     <div class="div1">
-        <h2 class="div-login-register"><img src="../img/edit.png" width="70px" class="img">แก้ไขข้อมูลผูใช้</h2>
+        <h2 class="div-login-register"><img src="../img/edit.png" width="70px" class="img">แก้ไขข้อมูลผู้ใช้</h2>
         <hr>
 
     <?php

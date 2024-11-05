@@ -210,7 +210,7 @@
                                 <td class="text-nowrap">
                                     <center>
                                         <a href="edit_operation.php?update_id=<?php echo $order["id"]; ?>" class="btn btn-warning">แก้ไข</a>
-                                        <a href="?delete_id=<?php echo $order["id"]; ?>" class="btn btn-danger">ลบ</a>
+                                        <button onclick="confirmDelete(<?php echo $order['id']; ?>)" class="btn btn-danger">ลบ</button>
                                     </center>
                                 </td>
                             </tr>

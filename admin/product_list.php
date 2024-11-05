@@ -30,8 +30,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADMIN PAGE</title>
     
+    <script src="index.js"></script>
     <link rel="stylesheet" href="css/admin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- SweetAlert library -->
 </head>
 <body>
     
@@ -125,7 +127,7 @@
                                 <td><center><?php echo $row["stock"]; ?> ชิ้น</center></td>
                                 <td class="text-nowrap">
                                     <a href="edit_product.php?update_id=<?php echo $row["id"]; ?>" class="btn btn-warning">แก้ไข</a>
-                                    <a href="?delete_id=<?php echo $row["id"]; ?>" class="btn btn-danger">ลบ</a>
+                                    <button onclick="confirmDelete(<?php echo $row['id']; ?>)" class="btn btn-danger">ลบ</button>
                                 </td>
                             </tr>
 

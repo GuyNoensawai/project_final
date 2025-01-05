@@ -11,6 +11,19 @@
 
     <link rel="stylesheet" href="css/st.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+    body {
+        background: url('img/Logo.png') no-repeat center center;
+        background-size: cover; /* ครอบคลุมพื้นที่ทั้งหมด */
+        min-height: 100vh; /* กำหนดให้ความสูงอย่างน้อยเท่ากับหน้าจอ */
+        margin: 0; /* ลบระยะขอบรอบ ๆ หน้า */
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        padding: 20px; /* เพิ่มช่องว่างให้กับเนื้อหา */
+    }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -36,7 +49,7 @@
                      <input type="text" name="txt_email" class="form-control" required placeholder="Enter email">
                 </div>
 
-                <label for="password" class="col-sm-3 control-label">Password</label>
+                <label for="password" class="col-sm-3 control-label mt-1">Password</label>
                 <div>
                     <input type="password" name="txt_password" class="form-control" required placeholder="Enter password">
                 </div>
@@ -61,8 +74,7 @@
 
                 <div class="from-group text-center">
                     <div class="col-sm-12 mt-3">
-                        <p>You don't have a account register here?</p>
-                        <a href="register.php">Register Account</a>
+                        <p>You don't have a account register here? <a href="register.php">Register Account</a></p>
                     </div>
                 </div>   
             </form>

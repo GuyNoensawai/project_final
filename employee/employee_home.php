@@ -220,7 +220,7 @@
                     
 
                     <div class="box2">
-                        <div class="product-item1" style="background: #F9E79F;">
+                        <div class="product-item1" style="background: #F9E79F; border-radius: 10px;">
                             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                             <script type="text/javascript">
                                 google.charts.load('current', {'packages':['corechart']});
@@ -295,7 +295,7 @@
                                 }
                             </script>
 
-                            <center><p style="font-size: 1.2vw;">กราฟสรุปยอด</p></center>
+                            <center><p style="font-size: 1.2vw;" class="mt-3">กราฟสรุปยอด</p></center>
                             
                             <div class="box3">
                                 <a href="javascript:void(0);" onclick="openGraphDay()" class="sidebar-menu">รายวัน</a>
@@ -312,7 +312,7 @@
                     </div>
 
                     <div class="box2">
-                        <div class="product-item1" style="background: #F9E79F;">
+                        <div class="product-item1" style="background: #F9E79F; border-radius: 10px;">
                         
                             <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
                             <script type="text/javascript">
@@ -332,7 +332,7 @@
                               }
                             </script>
 
-                            <center><p style="font-size: 1.2vw;">กราฟจำนวนสินค้าแต่ละชนิด</p></center>
+                            <center><p style="font-size: 1.2vw;" class="mt-3">กราฟจำนวนสินค้าแต่ละชนิด</p></center>
                             <center><div id="piechart" style="width: 98%; height: 400px;"></div></center>
                         </div>
                     </div>

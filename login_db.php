@@ -13,7 +13,7 @@
             $errorMsg[] = "Please enter email";
         } else if (empty($password)) {
             $errorMsg[] = "Please enter password";
-        } else if (empty($role)) {
+        } else if ($role == "Select Type" || empty($role)) {
             $errorMsg[] = "Please select role";
         } else if ($email AND $password AND $role) {
             try {
@@ -59,6 +59,13 @@
                 }
             } catch(PDOException $e) {
                 $e->getMessage();
+            }
+        }
+
+        // Display error messages
+        if (!empty($errorMsg)) {
+            foreach ($errorMsg as $error) {
+               header("location: index.php");
             }
         }
     }

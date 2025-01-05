@@ -360,18 +360,6 @@ function buynow() {
 
 }
 
-function openGraphDay() {
-    $('#modalCart').css('display', 'flex')
-    rendercart();
-    renderprice();
-}
-
-function openGraphMouth() {
-    $('#modalCart').css('display', 'flex')
-    rendercart();
-    renderprice();
-}
-
 function openGraphTotal() {
     $('#graph-total').css('display', 'flex')
     $('#graph-type').css('display', 'none')

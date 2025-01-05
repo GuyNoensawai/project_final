@@ -7,10 +7,23 @@
 
     <link rel="stylesheet" href="css/st.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+    body {
+        background: url('img/Logo.png') no-repeat center center;
+        background-size: cover; /* ครอบคลุมพื้นที่ทั้งหมด */
+        min-height: 100vh; /* กำหนดให้ความสูงอย่างน้อยเท่ากับหน้าจอ */
+        margin: 0; /* ลบระยะขอบรอบ ๆ หน้า */
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        padding: 20px; /* เพิ่มช่องว่างให้กับเนื้อหา */
+    }
+    </style>
 </head>
 <body>
     <div class="container">
-    <div class="div1">
+    <div class="div2">
         <h2 class="div-login-register"><img src="img/register.png" width="70px" class="img"><center>Register Page</center></h2>
         <hr>
 
@@ -35,42 +48,42 @@
         </div>
 
         <div class="form-group">
-            <label for="lastname" class="col-sm-3 control-label">Lastname</label>
+            <label for="lastname" class="col-sm-3 control-label mt-1">Lastname</label>
             <div>
                 <input type="text" name="txt_lastname" class="form-control" placeholder="Enter Lastname">
             </div>
         </div>
 
             <div class="form-group">
-                <label for="username" class="col-sm-3 control-label">Username</label>
+                <label for="username" class="col-sm-3 control-label mt-1">Username</label>
                 <div>
                     <input type="text" name="txt_username" class="form-control" placeholder="Enter Username">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="email" class="col-sm-3 control-label">Email</label>
+                <label for="email" class="col-sm-3 control-label mt-1">Email</label>
                 <div>
                     <input type="text" name="txt_email" class="form-control" placeholder="Enter Email">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="password" class="col-sm-3 control-label">Password</label>
+                <label for="password" class="col-sm-3 control-label mt-1">Password</label>
                 <div>
                     <input type="text" name="txt_password" class="form-control" placeholder="Enter Password">
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="phone" class="col-sm-3 control-label">Tel</label>
+                <label for="phone" class="col-sm-3 control-label mt-1">Tel</label>
                 <div>
                     <input type="text" name="txt_phone" class="form-control" placeholder="Enter Phone">
                 </div>
             </div>
 
             <div class="from-group">
-                <label for="type" class="col-sm-3 control-label">Select Type</label>
+                <label for="type" class="col-sm-3 control-label mt-1">Select Type</label>
                 <div class="col-sm-12">
                     <select name="txt_role" id="form-control">
                         <option value="user" select="">User</option>
@@ -86,8 +99,7 @@
 
             <div class="from-group text-center">
                 <div class="col-sm-12 mt-3">
-                    <p>You have a account login here?</p>
-                    <a href="index.php">Login Account</a>
+                    <p>You have a account login here? <a href="index.php">Login Account</a></p>
                 </div>
             </div>
         </form>

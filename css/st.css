@@ -1,14 +1,27 @@
 .div1 {
-    margin-top: 50px;
+    margin-top: 80px;
     background: rgb(255, 255, 255);
     padding: 10px;
     border-radius: 10px;
     width: 450px;
-    height: 750px;
+    height: 500px;
     box-shadow: 0 10px 20px rgba(98, 98, 98, 0.2);
     position: absolute;
-    left: 40%;
+    left: 65%;
 }
+
+.div2 {
+    margin-top: 10px;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 10px;
+    width: 450px;
+    height: 680px;
+    box-shadow: 0 10px 20px rgba(98, 98, 98, 0.2);
+    position: absolute;
+    left: 65%;
+}
+
 
 .div-login-register {
     display: flex;
